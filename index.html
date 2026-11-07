@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow - Task Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <h2 class="logo">TaskFlow</h2>
+
+            <div class="language-switcher">
+                <button id="englishButton" class="language-button active-language">🇬🇧 English</button>
+                <button id="turkishButton" class="language-button">🇹🇷 Türkçe</button>
+            </div>
+
+            <p class="sidebar-description">Manage your day</p>
+
+            <nav>
+                <button type="button" id="allTasksButton">All Tasks</button>
+                <button type="button" id="activeTasksButton">Active Tasks</button>
+                <button type="button" id="completedTasksButton">Completed Tasks</button>
+            </nav>
+
+        </aside>
+
+        <main class="main-content">
+
+            <header class="page-header">
+                <div>
+                    <h1>My Tasks</h1>
+                    <p>Organize your work and stay productive.</p>
+                </div>
+            </header>
+
+            <!-- Task Summary -->
+            <section class="summary-container">
+
+                <div class="summary-card">
+                    <h3 id="totalTaskTitle">Total Tasks</h3>
+                    <p id="totalTasks">0</p>
+                </div>
+
+                <div class="summary-card">
+                    <h3 id="activeTaskTitle">Active Tasks</h3>
+                    <p id="activeTasks">0</p>
+                </div>
+
+                <div class="summary-card">
+                    <h3 id="completedTaskTitle">Completed Tasks</h3>
+                    <p id="completedTasks">0</p>
+                </div>
+
+            </section>
+
+            <!-- Add New Task -->
+            <section class="add-task-section">
+
+                <h2>Add a New Task</h2>
+
+                <div class="task-input-container">
+                    <input type="text" id="taskInput" placeholder="What needs to be done?">
+                    <button type="button" id="addTaskButton">Add Task</button>
+                </div>
+
+            </section>
+
+            <!-- Task List -->
+            <section class="task-section">
+
+                <div class="task-section-header">
+                    <h2>My Task List</h2>
+                    <button type="button" id="clearCompletedButton">Clear Completed</button>
+                </div>
+
+                <ul id="taskList">
+                    <li>Loading tasks...</li>
+                </ul>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>

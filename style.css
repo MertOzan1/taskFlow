@@ -1,0 +1,577 @@
+/* ==========================================
+  STEP 1: GENERAL PAGE DESIGN
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(124, 58, 237, 0.22),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #111126 0%,
+            #191735 45%,
+            #21183f 100%
+        );
+
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* ==========================================
+  STEP 2: MAIN APP LAYOUT
+========================================== */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==========================================
+  STEP 3: SIDEBAR
+========================================== */
+
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    padding: 35px 22px;
+
+    background: rgba(15, 14, 40, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+    font-size: 29px;
+    color: #c4b5fd;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-description {
+    color: #aaa5c9;
+    margin-bottom: 42px;
+    font-size: 14px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar nav button {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+
+    background: transparent;
+    color: #d8d4f0;
+
+    text-align: left;
+    cursor: pointer;
+    font-size: 15px;
+
+    transition: all 0.3s ease;
+}
+
+.sidebar nav button:hover {
+    background: rgba(167, 139, 250, 0.16);
+    border-color: rgba(196, 181, 253, 0.22);
+    color: #ffffff;
+}
+
+/* Selected filter style */
+
+.sidebar nav button.active-filter {
+    background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.38),
+        rgba(124, 58, 237, 0.18)
+    );
+
+    border-color: rgba(196, 181, 253, 0.35);
+    color: #ffffff;
+}
+
+/* ==========================================
+  STEP 4: MAIN CONTENT
+========================================== */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 42px;
+}
+
+.page-header h1 {
+    font-size: 35px;
+    margin-top: 0;
+    margin-bottom: 9px;
+    letter-spacing: 0.3px;
+}
+
+.page-header p {
+    color: #c2bddc;
+    margin-top: 0;
+    font-size: 15px;
+}
+
+/* ==========================================
+  STEP 5: SUMMARY CARDS
+========================================== */
+
+.summary-container {
+    display: flex;
+    gap: 22px;
+    margin: 38px 0;
+}
+
+.summary-card {
+    flex: 1;
+    min-width: 0;
+    padding: 25px;
+    border-radius: 18px;
+
+    background: linear-gradient(
+        135deg,
+        #7455dc 0%,
+        #6246c5 55%,
+        #49339f 100%
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    transition: transform 0.3s ease;
+}
+
+.summary-card:nth-child(2) {
+    background: linear-gradient(
+        135deg,
+        #259bc9 0%,
+        #287bbd 55%,
+        #2456a8 100%
+    );
+}
+
+.summary-card:nth-child(3) {
+    background: linear-gradient(
+        135deg,
+        #e46cae 0%,
+        #c653a3 55%,
+        #923d9d 100%
+    );
+}
+
+.summary-card:hover {
+    transform: translateY(-4px);
+}
+
+.summary-card h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    min-height: 20px;
+
+    font-size: 14px;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.4px;
+}
+
+.summary-card p {
+    min-height: 40px;
+    margin: 0;
+
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 40px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================
+  STEP 6: ADD TASK SECTION
+========================================== */
+
+.add-task-section,
+.task-section {
+    padding: 28px;
+    margin-bottom: 26px;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.065);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.13);
+}
+
+.add-task-section h2,
+.task-section-header h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.task-input-container {
+    display: flex;
+    gap: 14px;
+}
+
+#taskInput {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 16px;
+
+    border: 1px solid rgba(167, 139, 250, 0.35);
+    border-radius: 11px;
+
+    background: rgba(22, 20, 49, 0.8);
+    color: #ffffff;
+    font-size: 15px;
+
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#taskInput::placeholder {
+    color: #aaa3c8;
+}
+
+#taskInput:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.15);
+}
+
+/* ==========================================
+  STEP 7: MAIN BUTTONS
+========================================== */
+
+button {
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+#addTaskButton {
+    padding: 14px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #b49aff 0%,
+        #9672f0 50%,
+        #783be2 100%
+    );
+
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+
+    box-shadow: 0 5px 18px rgba(124, 58, 237, 0.22);
+}
+
+#addTaskButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(124, 58, 237, 0.38);
+}
+
+/* ==========================================
+  STEP 8: TASK LIST
+========================================== */
+
+.task-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+#clearCompletedButton {
+    padding: 11px 16px;
+    border: 1px solid rgba(244, 114, 182, 0.25);
+    border-radius: 10px;
+
+    background: rgba(190, 55, 119, 0.25);
+    color: #ffc4e2;
+
+    cursor: pointer;
+    font-size: 13px;
+}
+
+#clearCompletedButton:hover {
+    background: rgba(210, 65, 139, 0.5);
+    color: #ffffff;
+}
+
+#taskList {
+    padding: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+
+    padding: 16px;
+    margin-bottom: 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.055);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#taskList li:hover {
+    background: rgba(167, 139, 250, 0.11);
+    border-color: rgba(196, 181, 253, 0.23);
+}
+
+#taskList li span {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+}
+
+#taskList li.empty-state {
+    cursor: default;
+    color: #aaa3c8;
+}
+
+#taskList li.empty-state:hover {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+  STEP 9: TASK ACTION BUTTONS
+========================================== */
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+}
+
+#taskList .edit-button,
+#taskList .delete-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#taskList .edit-button {
+    background: linear-gradient(
+        135deg,
+        #7961c7,
+        #55408f
+    );
+}
+
+#taskList .edit-button:hover {
+    background: linear-gradient(
+        135deg,
+        #9679ed,
+        #7055bd
+    );
+
+    transform: translateY(-2px);
+}
+
+#taskList .delete-button {
+    background: linear-gradient(
+        135deg,
+        #e65c83,
+        #bd315e
+    );
+}
+
+#taskList .delete-button:hover {
+    background: linear-gradient(
+        135deg,
+        #fa789e,
+        #d83c70
+    );
+
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+  STEP 10: COMPLETED TASK
+========================================== */
+
+.completed {
+    text-decoration: line-through;
+    color: #aaa3c8;
+    opacity: 0.7;
+}
+
+/* ==========================================
+  STEP 11: RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        padding: 28px;
+    }
+
+    .summary-container {
+        gap: 14px;
+    }
+
+    .summary-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 22px;
+    }
+
+    .sidebar-description {
+        margin-bottom: 22px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar nav button {
+        flex: 1;
+        min-width: 130px;
+    }
+
+    .main-content {
+        padding: 25px;
+    }
+
+    .summary-container {
+        flex-wrap: wrap;
+    }
+
+    .summary-card {
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .main-content {
+        padding: 18px;
+    }
+
+    .page-header h1 {
+        font-size: 29px;
+    }
+
+    .summary-container {
+        flex-direction: column;
+    }
+
+    .summary-card {
+        width: 100%;
+    }
+
+    .task-input-container {
+        flex-direction: column;
+    }
+
+    #addTaskButton {
+        width: 100%;
+    }
+
+    .task-section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    #taskList li {
+        flex-wrap: wrap;
+    }
+
+    .task-actions {
+        margin-left: auto;
+    }
+}
+
+/* ==========================================
+  STEP 12: LANGUAGE SWITCHER
+========================================== */
+
+.language-switcher {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.language-button {
+    padding: 9px 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9px;
+
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #d8d4f0;
+
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.language-button:hover {
+    background: rgba(167, 139, 250, 0.16);
+    color: #ffffff;
+}
+
+.language-button.active-language {
+    background: rgba(139, 92, 246, 0.35);
+    border-color: rgba(196, 181, 253, 0.4);
+    color: #ffffff;
+}
