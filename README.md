@@ -6,19 +6,10 @@ TaskFlow is a responsive task management application built with HTML, CSS, and V
 
 ## Screenshots
 
-### English Interface
-![TaskFlow English Dashboard](screenshots/01-english-dashboard.png)
-
-### Turkish Interface
-![TaskFlow Turkish Dashboard](screenshots/02-turkish-dashboard.png)
-
-### Task Management
-![TaskFlow Task Management](screenshots/03-task-management.png)
-
-### Edit Tasks
-![TaskFlow Edit Task](screenshots/04-edit-task.png)
-
-## Features
+![English](screenshots/english-dashboard.png)
+![Turkish](screenshots/turkish-dashboard.png)
+![Task Management](screenshots/task-management.png)
+![Edit Task](screenshots/edit-task.png)
 
 - Add, edit, and delete tasks.
 - Mark tasks as completed or active.
